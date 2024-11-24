@@ -97,6 +97,6 @@ value_box(
 
 
 ```{r}
-datatable(mtcars)
+datatable(dataset)
 ```
 
