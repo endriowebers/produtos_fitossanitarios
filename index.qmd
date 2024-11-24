@@ -9,15 +9,15 @@ format:
 --- 
 
 ```{r}
-#| message: false
 #| context: setup
+
 library(tidyverse)
 library(bslib)
 library(bsicons)
 library(shiny)
 library(DT)
-
-dataset <- read.csv("data/agrofitprodutosformulados_nov_24.csv", sep=";")
+library(readxl)
+dataset <- read_excel("data/produtos_fitossanitarios_nov_24.xlsx")
 
 ```
 
@@ -74,6 +74,6 @@ value_box(
 # Dados
 
 ```{r}
-datatable(mtcars)
+datatable(dataset)
 ```
 
