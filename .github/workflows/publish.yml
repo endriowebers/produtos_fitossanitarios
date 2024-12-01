@@ -27,6 +27,11 @@ jobs:
         with:
           cache-version: 1
 
+      # Instalação do pacote tidyverse
+      - name: Install Additional R Packages
+        run: |
+          Rscript -e 'if(!requireNamespace("tidyverse", quietly = TRUE)) install.packages("tidyverse")'
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
