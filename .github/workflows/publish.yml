@@ -31,6 +31,8 @@ jobs:
       - name: Install Additional R Packages
         run: |
           Rscript -e 'if(!requireNamespace("tidyverse", quietly = TRUE)) install.packages("tidyverse")'
+          Rscript -e 'if(!requireNamespace("bsicons", quietly = TRUE)) install.packages("bsicons")'
+          
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
