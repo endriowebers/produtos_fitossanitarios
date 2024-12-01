@@ -6,6 +6,8 @@ format:
     logo: images/penguins.png
     nav-buttons: [linkedin, github]
     theme: yeti
+editor_options: 
+  chunk_output_type: console
 --- 
 
 ```{r}
