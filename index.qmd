@@ -7,7 +7,7 @@ format:
     nav-buttons: [linkedin, github]
     theme: yeti
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 --- 
 
 ```{r}
@@ -22,15 +22,39 @@ dataset <- read_excel("data/produtos_fitossanitarios_nov_24.xlsx")
 
 ```
 
+```{r}
+dataset |> 
+  select(MARCA_COMERCIAL,
+         FORMULACAO,
+         INGREDIENTE_ATIVO,
+         TITULAR_DE_REGISTRO,
+         CLASSE,
+         MODO_DE_ACAO,
+         CULTURA,
+         PRAGA_NOME_CIENTIFICO,
+         PRAGA_NOME_COMUM,
+         CLASSE_TOXICOLOGICA,
+         CLASSE_AMBIENTAL,
+         ORGANICOS)
+```
 
 
 # {.sidebar}
 
+```{r}
+sliderInput('sampleSize', 'Sample Size', 
+            min=1, max=nrow(dataset),
+            value=min(1000, nrow(dataset)), 
+            step=500, round=0)
+br()
+checkboxInput('jitter', 'Jitter', value = TRUE)
+checkboxInput('smooth', 'Smooth', value = TRUE)
+```
 
 ```{r}
 #| title: "Tipping Behavior"
 
-
+dataset
 ```
 
 
@@ -75,6 +99,6 @@ value_box(
 # Dados
 
 ```{r}
-datatable(dataset)
+datatable(cars)
 ```
 
